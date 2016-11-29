@@ -18,6 +18,7 @@ class Box {
 		// Böylece scope resolution operator ile istedigimiz bir yerde method tanımlayabiliriz.
 
 		double alanHesapla(void);	
+	private:
 };
 
 // Bu örnek için tam olmayacak ama alanHesapla methodunu
@@ -46,4 +47,5 @@ int main()
 
 	// Methodların kullanılması
 	cout << kutu1.hacimHesapla() << endl;
+	cout << kutu2.alanHesapla() << endl;
 }
