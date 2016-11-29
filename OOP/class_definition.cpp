@@ -8,12 +8,26 @@ class Box {
 		double derinlik;
 		double yukseklik;
 
-		// function inline definition
+		// Bu şekilde tanımlayabiliriz.
 		double hacimHesapla(void)
 		{
 			return (uzunluk * derinlik * yukseklik);
 		}
+
+		// Veya function inline dedigimiz, prototype'ını buraya yazabiliriz.
+		// Böylece scope resolution operator ile istedigimiz bir yerde method tanımlayabiliriz.
+
+		double alanHesapla(void);	
 };
+
+// Bu örnek için tam olmayacak ama alanHesapla methodunu
+// scope resolution operatoru (::) ile de tanımlayabiliriz.
+// kapsam çözümleme operatörü
+
+double Box::alanHesapla(void)
+{
+	return (uzunluk * yukseklik);
+}
 
 
 int main()
