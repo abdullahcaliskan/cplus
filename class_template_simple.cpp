@@ -24,16 +24,22 @@ template <class Hesap_T>
 class Hesapla
 {
 	public:
+		Hesap_T sayi1;
+		Hesap_T sayi2;
 		Hesap_T Carp( Hesap_T, Hesap_T );
 		Hesap_T Topla( Hesap_T, Hesap_T );
 };
 template <class Hesap_T> Hesap_T Hesapla<Hesap_T>::Carp( Hesap_T x, Hesap_T y)
 {
-	return x * y;
+	this -> sayi1 = x;
+	this -> sayi2 = y;
+	return sayi1 * sayi2;
 }
 template <class Hesap_T> Hesap_T Hesapla<Hesap_T>::Topla( Hesap_T x, Hesap_T y )
 {
-	return x + y;
+	this -> sayi1 = x;
+	this -> sayi2 = y;
+	return sayi1 + sayi2;
 }
 
 int main()
