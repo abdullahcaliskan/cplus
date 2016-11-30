@@ -20,7 +20,10 @@ namespace scope2
 }
 
 // Bu sayede, func() şeklinde bir çağrı scope1'den gelir.
-using namespace scope1;
+//using namespace scope1;
+
+using scope2::func;
+// Bu şekilde, scope2 deki func fonksiyonunun önceligini arttırıyor ve onu kullanıyoruz.
 
 int main()
 {
