@@ -1,22 +1,23 @@
+# CMake için olmazsa olmaz 2 satır.
 cmake_minimum_required (VERSION 2.6)
-project(caf_cmake)
+project (caf_cmake)
 
-#-std=gnu++0x
-set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=gnu++0x")
 
-# Degişken tanımladım
-set (CAF_INCLUDE_DIRS /usr/local/include/caf/)
-set (CAF_LIBRARY_DIRS /usr/local/lib/)
+set (CMAKE_CXX_STANDART 11)
+if (UNIX)
+	set (CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -std=gnu++0x")
+endif()
 
-# Bu dizinleri, projeye ekledim
-include_directories( ${CAF_INCLUDE_DIRS} )
-include_directories( ${CAF_LIBRARY_DIRS} )
+#başlık dosyalarını yapılandırma
 
-#Kütüphane adını yazdım
-add_library(lcaf_io)
-add_library(lcaf_core)
+#Bu dizini dahil et.
+include_directories( /usr/local/include )
 
-# Derlenecek dosya
+#Kütüphane dosyalarının nerde olduğunu söylüyorum
+link_directories( /usr/local/lib )
+
+#Uygulamayı çalıştırılabilir hale getir, main.cpp'den
 add_executable(caf_cmake main.cpp)
-#linklenecek kütüphane
-target_link_libraries(caf_cmake lcaf_core lcaf_io)
+
+#Kütüphaneleri bağla
+target_link_libraries( caf_cmake caf_core caf_io)
